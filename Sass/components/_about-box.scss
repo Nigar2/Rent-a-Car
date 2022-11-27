@@ -1,0 +1,26 @@
+.about-box {
+	background-color: $color-white;
+	padding: 0 3.5rem 2rem 3.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .15);
+	transition: transform .3s;
+
+	@include respond(phone) {
+		padding: 0 2.5rem 1rem 2.5rem;
+	}	
+
+	&__icon {
+		font-size: 7rem;
+		display: block;
+		color: $color-primary-light;
+	}
+
+	&__text {
+		text-align: justify;
+	}
+
+	&:hover {
+		transform: translateY(-1.5rem) scale(1.03);
+	}
+	
+}

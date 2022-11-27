@@ -1,0 +1,33 @@
+// COLORS
+$color-primary: #273c75;
+$color-primary-light: #70a1ff; 
+$color-primary-dark: #192a56;
+
+$color-grey-light: #f7f7f7;
+$color-grey-dark: #777;
+$color-grey-darken: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT
+$default-font-size: 1.6rem;
+
+// UTILITIES
+.u-center-text { text-align: center !important; }
+
+.u-margin-bottom-big {
+	margin-bottom: 8rem !important;
+
+	@include respond(tab-port) {
+        margin-bottom: 5rem !important;
+    }
+}
+.u-margin-bottom-medium {
+	margin-bottom: 4rem !important;
+
+	@include respond(tab-port) {
+        margin-bottom: 3rem !important;
+    }
+}
+.u-margin-bottom-small { margin-bottom: 1.5rem !important; }

@@ -1,0 +1,82 @@
+.section-about {
+	background-color: $color-grey-light;
+	padding: 10rem 0;
+
+	@include respond(tab-port) {
+		padding: 5rem 0;
+
+		:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.section-users {
+	padding: 15rem 0;
+	background-image: linear-gradient(
+		to right bottom, 
+		rgba($color-primary-light, 0.8), 
+		rgba($color-primary-dark, 0.8)),
+	    url(../img/users.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+	@include respond(tab-land) {
+		padding: 10rem 0;
+	}
+
+	@include respond(phone) {
+		padding: 5rem 0;
+	}
+
+	.heading-secondary { color: white; }
+}
+
+.section-offers {
+	background-color: $color-grey-light;
+	padding: 15rem 0;
+
+	@include respond(tab-land) {
+		padding: 10rem 0;
+	}
+
+	@include respond(tab-port) {
+		padding: 10rem 0 5rem 0;
+	}
+
+	@include respond(phone) {
+		padding: 5rem 0 0 0;
+	}	
+			
+}
+
+.section-world {
+	padding: 20rem 0;
+	background-image: linear-gradient(
+		to right bottom, 
+		rgba($color-primary-light, 0.8), 
+		rgba($color-primary-dark, 0.8)),
+	    url(../img/nasa-small.jpg);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+
+	@media (min-resolution: 192dpi) and (min-width: 37.5em),
+		   (min-width: 125em) {
+		background-image: linear-gradient(
+		to right bottom, 
+		rgba($color-primary-light, 0.8), 
+		rgba($color-primary-dark, 0.8)),
+	    url(../img/nasa.jpg);
+	}
+
+	@include respond(tab-land) {
+		padding: 15rem 0;
+	}
+
+	@include respond(phone) {
+		padding: 5rem 0;
+	}
+}
+

@@ -1,0 +1,93 @@
+.popup {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba($color-black, .8);
+	z-index: 9999;
+	opacity: 0;
+	visibility: hidden;
+
+	.book {
+		@include absCenter;
+
+		width: 70%;
+		background-image: linear-gradient(105deg,
+			rgba($color-white, .9) 0%, 
+			rgba($color-white, .9) 50%, 
+			transparent 50%),
+			url(../img/road.jpg);
+		background-size: 100%;
+		background-position: center;
+		border-radius: 3px;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+		overflow: hidden;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(.5);
+		transition: all .2s ease-in;
+
+		@include respond(tab-land) {
+			background-image: linear-gradient(105deg,
+							  rgba($color-white, .9) 0%, 
+							  rgba($color-white, .9) 65%, 
+							  transparent 65%),
+							  url(../img/road.jpg);
+			background-size: cover;
+			width: 80%;							  
+		}
+
+		@include respond(tab-port) {
+			background-image: linear-gradient(to right,
+							  rgba($color-white, .9) 0%, 
+							  rgba($color-white, .9) 100%),
+							  url(../img/road.jpg);
+		}
+
+		&__form {
+			width: 50%;
+			padding: 6rem;
+
+			@include respond(tab-land) {
+				width: 70%;
+			}
+			
+			@include respond(tab-port) {
+				width: 100%;
+			}
+
+			@include respond(phone) {
+				padding: 2rem 1rem;
+			}	
+		}
+	}
+
+	&:target {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&:target .book {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	&__close {
+		&:link,
+		&:visited {
+			color: $color-grey-dark;
+			position: absolute;
+			top: 2.5rem;
+			right: 2.5rem;
+			font-size: 3rem;
+			text-decoration: none;
+			display: inline-block;
+			transition: all .2s;
+			line-height: 1;
+		}
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+}	

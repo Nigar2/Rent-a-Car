@@ -1,0 +1,192 @@
+.card {
+
+	// FUNCIONALITI
+	-moz-pesrspective: 150rem;
+	perspective: 150rem;
+	height: 52rem;
+	border: none;
+	position: relative;
+
+	@include respond(tab-port) {
+		margin-bottom: 5rem;
+	}
+
+	&__side {
+		height: 52rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border-radius: 3px;
+		backface-visibility: hidden;
+		overflow: hidden;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+		transition: all .8s ease;
+
+		&--front { background-color: $color-white; }
+
+		&--back {
+			transform: rotateY(-180deg);
+			background-image: linear-gradient(
+				to right bottom,
+				$color-primary-light,
+				$color-primary-dark);
+		}
+	}
+
+	&:hover &__side--front { transform: rotateY(180deg); }
+
+	&:hover &__side--back { transform: rotateY(0); }
+
+	// FRONT SIDE STYLING
+	&__picture {
+		background-size: cover;
+		height: 30rem;
+		background-blend-mode: overlay;
+		clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+		&--1 {
+			background-image: linear-gradient(
+				to right bottom,
+				$color-primary-light, $color-primary-dark), 
+		        url(../img/offer-scooter-small.jpg);
+
+		        @media (min-resolution: 192dpi) and (min-width: 37.5em),
+		   			   (min-width: 125em) {
+		   			   	background-image: linear-gradient(
+						to right bottom,
+						$color-primary-light, $color-primary-dark), 
+				        url(../img/offer-scooter.jpg);
+		        }         
+		}
+
+		&--2 {
+			background-image: linear-gradient(
+		        to right bottom,
+				$color-primary-light,$color-primary-dark),
+		        url(../img/offer-car-small.jpg);
+
+		        @media (min-resolution: 192dpi) and (min-width: 37.5em),
+		   			   (min-width: 125em) {
+		   			   	background-image: linear-gradient(
+						to right bottom,
+						$color-primary-light, $color-primary-dark), 
+				        url(../img/offer-car.jpg);
+		        }
+		}
+
+		&--3 {
+		    background-image: linear-gradient(
+		        to right bottom,
+				$color-primary-light,$color-primary-dark),
+		        url(../img/offer-limo-small.jpg);
+
+		        @media (min-resolution: 192dpi) and (min-width: 37.5em),
+		   			   (min-width: 125em) {
+		   			   	background-image: linear-gradient(
+						to right bottom,
+						$color-primary-light, $color-primary-dark), 
+				        url(../img/offer-limo.jpeg);
+		        }
+		}    
+	}
+
+	&__heading {
+		font-size: 3rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		color: $color-white;
+		position: absolute;
+		top: 20rem;
+		left: 2rem;
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+	}
+
+	&__details {
+		padding: 3rem;
+
+		ul {
+			list-style: none;
+			margin: 0 auto;
+			width: 80%;
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+			}
+		}
+	}
+
+	// BACK SIDE STYLING
+	&__cta {
+		@include absCenter;
+		text-align: center;
+	}
+
+	&__price-box {
+		color: $color-white;
+		margin-bottom: 8rem;
+	}
+
+	&__price-only {
+		font-size: 1.4rem;
+		text-transform: uppercase;
+	}
+
+	&__price-value {
+		font-size: 6rem;
+		font-weight: 100;
+
+		span { font-size: 2rem; }
+	}
+
+	// FOR TAB-PORT AND LESS AND TOUCH DEVICES (WITHOUT HOVER)
+	// CARD ONLY HAVE ONE SIDE FRONT AND BACK TOGETHAR
+	@media only screen and (max-width: 56.25em),
+	       only screen and (hover: none) {
+		height: auto;
+		border-radius: 3px;
+		background-color: $color-white;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+		&__side {
+			height: auto;
+			position: relative;
+			box-shadow: none;
+
+			&--back {
+				transform: rotateY(0);
+				clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+			}
+		}
+
+		&:hover &__side--front {
+			transform: rotateY(0);
+		}
+
+		&__details {
+			padding: 1rem 3rem;
+		}	
+
+		&__cta {
+			position: relative;
+			top: 0;
+			left: 0;
+			transform: translate(0);
+			width: 100%;
+			padding: 7rem 4rem 4rem 4rem;
+		}
+
+		&__price-box {
+			margin-bottom: 3rem;
+		}
+
+		&__price-value {
+			font-size: 4rem;
+	    }	
+    }
+}

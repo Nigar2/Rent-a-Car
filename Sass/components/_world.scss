@@ -1,0 +1,54 @@
+.world {
+	width: 90%;
+	margin: 0 auto;
+	background-color: $color-white;
+	box-shadow: 0 3rem 6rem rgba($color-black, .1);
+	border-radius: 3px;
+	padding: 5rem;
+	padding-left: 9rem;
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
+
+	@include respond(tab-port) {
+		padding: 3rem;
+		padding-left: 5rem;
+	}
+
+	@include respond(phone) {
+		transform: skewX(0);
+	}
+
+	&__img-box {
+		height: 15rem;
+		width: 15rem;
+		float: left;
+		border-radius: 50%;
+		transform: translateX(-3rem) skewX(12deg);
+		position: relative;
+		overflow: hidden;
+		
+		// IF BROWSER SUPORT CLIP-PATH
+		@supports (clip-path: polygon(0 0)) {
+			clip-path: circle(50% at 50% 50%);
+			shape-outside: circle(50% at 50% 50%);
+			border-radius: none;
+		}
+
+		@include respond(phone) {
+			transform: translateX(-3rem) skewX(0);
+		}
+	}
+
+	&__img {
+		height: 100%;
+		transform: translateX(-4rem) scale(1.4);
+	}
+
+	&__text {
+		transform: skewX(12deg);
+
+		@include respond(phone) {
+			transform: skewX(0);
+		}
+	}
+}
